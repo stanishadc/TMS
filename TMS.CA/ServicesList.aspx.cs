@@ -6,7 +6,7 @@ using System.Web.UI;
 
 namespace TMS.CA
 {
-    public partial class EmployeeList : System.Web.UI.Page
+    public partial class ServicesList : System.Web.UI.Page
     {
         ErrorFile err = new ErrorFile();
         string ErrorPath = string.Empty;
@@ -15,14 +15,14 @@ namespace TMS.CA
             ErrorPath = Server.MapPath("ErrorLog.txt");
             try
             {
-                    if (!IsPostBack)
+                if (!IsPostBack)
+                {
+                    if (Request.QueryString["Action"] == "Delete")
                     {
-                        if (Request.QueryString["Action"] == "Delete")
-                        {
-                            DeleteRecord(Request.QueryString["Id"]);
-                        }
-                        BindData();
+                        DeleteRecord(Request.QueryString["Id"]);
                     }
+                    BindData();
+                }
             }
             catch (Exception ex)
             {
@@ -37,11 +37,11 @@ namespace TMS.CA
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM Employees WHERE EmployeeId = @EmployeeId"))
+                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM Services WHERE ServiceId = @ServiceId"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            cmd.Parameters.AddWithValue("@EmployeeId", Id);
+                            cmd.Parameters.AddWithValue("@ServiceId", Id);
                             cmd.Connection = con;
                             con.Open();
                             cmd.ExecuteNonQuery();
@@ -63,20 +63,18 @@ namespace TMS.CA
             {
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 string htmldata = string.Empty;
-                htmldata += "<table class='table table-bordered table-striped mt-3' id='employeesList'>" +
+                htmldata += "<table class='table table-bordered table-striped mt-3' id='ServicesList'>" +
                     "<thead>" +
                         "<tr>" +
                             "<th>No</th>" +
-                            "<th>Name</th>" +
-                            "<th>Mobile</th>" +
-                            //"<th>Designation</th>" +
+                            "<th>Service Name</th>" +
                             "<th>Status</th>" +
                             "<th class='align-middle text-center'>Action</th>" +
                         "</tr>" +
                     "</thead><tbody>";
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("Select * From Employees"))
+                    using (MySqlCommand cmd = new MySqlCommand("Select * From Services"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
@@ -91,8 +89,7 @@ namespace TMS.CA
                                     htmldata += "<tr> " +
                                                     "<td>" + index + "</td>" +
                                                     "<td>" + dt.Rows[i]["Name"] + "</td>";
-                                    htmldata += "<td>" + dt.Rows[i]["Mobile"] + "</td>";
-                                    //htmldata += "<td>" + dt.Rows[i]["Designation"] + "</td>";
+                                   
                                     if (dt.Rows[i]["Status"].ToString() == "1")
                                     {
                                         htmldata += "<td>Active</td>";
@@ -102,8 +99,8 @@ namespace TMS.CA
                                         htmldata += "<td>InActive</td>";
                                     }
                                     htmldata += "<td class='align-middle text-center'>" +
-                                    "<a href=EmployeeDetails.aspx?Id=" + dt.Rows[i]["EmployeeId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
-                                    "<a href=EmployeeList.aspx?Id=" + dt.Rows[i]["EmployeeId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
+                                    "<a href=ServicesDetails.aspx?Id=" + dt.Rows[i]["ServiceId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
+                                    "<a href=ServicesList.aspx?Id=" + dt.Rows[i]["ServiceId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
                                 "</td></tr>";
                                 }
                             }

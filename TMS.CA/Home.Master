@@ -101,12 +101,21 @@
                                     </ul>
                                 </li>
                                 <li class="parent">
-                                    <a href="#" onclick="toggle_menu('projects'); return false" class=""><i class="fa fa-tasks mr-3"></i>
+                                    <a href="#" onclick="toggle_menu('clients'); return false" class=""><i class="fa fa-tasks mr-3"></i>
                                         <span class="none">Clients <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
-                                    <ul class="children" id="projects">                                        
-                                        <li class="child"><a href="ProjectsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Clients List</a></li>
-                                        <li class="child"><a href="PlotsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Docs</a></li>
+                                    <ul class="children" id="clients">                                        
+                                        <li class="child"><a href="ClientsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Clients List</a></li>
+                                        <li class="child"><a href="CDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Docs</a></li>
+                                    </ul>
+                                </li>
+                                 <li class="parent">
+                                    <a href="#" onclick="toggle_menu('category'); return false" class=""><i class="fa fa-tasks mr-3"></i>
+                                        <span class="none">Category <i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                                    </a>
+                                    <ul class="children" id="category">                                        
+                                        <li class="child"><a href="CategoryLists.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Category List</a></li>
+                                        <li class="child"><a href="ServicesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Services List</a></li>
                                     </ul>
                                 </li>
                             </ul>
