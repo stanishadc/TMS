@@ -2060,8 +2060,10 @@
     <Content Include="Error.aspx" />
     <Content Include="ErrorLog.txt" />
     <Content Include="Index.aspx" />
+    <Content Include="RolesList.aspx" />
     <Content Include="ServicesDetails.aspx" />
     <Content Include="ServicesList.aspx" />
+    <Content Include="UsersList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2144,6 +2146,13 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolesList.aspx.cs">
+      <DependentUpon>RolesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RolesList.aspx.designer.cs">
+      <DependentUpon>RolesList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ServicesDetails.aspx.cs">
       <DependentUpon>ServicesDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2157,6 +2166,13 @@
     </Compile>
     <Compile Include="ServicesList.aspx.designer.cs">
       <DependentUpon>ServicesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsersList.aspx.cs">
+      <DependentUpon>UsersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsersList.aspx.designer.cs">
+      <DependentUpon>UsersList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

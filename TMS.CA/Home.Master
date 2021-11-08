@@ -97,7 +97,8 @@
                                         <li class="child"><a href="EmployeeList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employees</a></li>
                                         <li class="child"><a href="EDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Docs</a></li>
                                         <li class="child"><a href="DesignationsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Desgination</a></li>
-                                        <li class="child"><a href="UsersList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Users</a></li>                                        
+                                        <li class="child"><a href="UsersList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Users</a></li>  
+                                          <li class="child"><a href="RolesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Roles</a></li> 
                                     </ul>
                                 </li>
                                 <li class="parent">

@@ -15,6 +15,8 @@ namespace TMS.CA
             ErrorPath = Server.MapPath("ErrorLog.txt");
             try
             {
+                if (Session["UserId"] != null)
+                {
                     if (!IsPostBack)
                     {
                         if (Request.QueryString["Action"] == "Edit")
@@ -30,6 +32,11 @@ namespace TMS.CA
                         }
                         BindDesignations();
                     }
+                }
+                else
+                {
+                    Response.Redirect("~/Index.aspx");
+                }
             }
             catch (Exception ex)
             {

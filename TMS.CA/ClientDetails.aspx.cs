@@ -15,19 +15,27 @@ namespace TMS.CA
             ErrorPath = Server.MapPath("ErrorLog.txt");
             try
             {
-                if (!IsPostBack)
+                if (Session["UserId"] != null)
                 {
-                    if (Request.QueryString["Action"] == "Edit")
+                    if (!IsPostBack)
                     {
-                        btnSubmit.Visible = false;
-                        btnUpdate.Visible = true;
-                        BindDataById(Request.QueryString["Id"]);
+
+                        if (Request.QueryString["Action"] == "Edit")
+                        {
+                            btnSubmit.Visible = false;
+                            btnUpdate.Visible = true;
+                            BindDataById(Request.QueryString["Id"]);
+                        }
+                        else
+                        {
+                            btnSubmit.Visible = true;
+                            btnUpdate.Visible = false;
+                        }
                     }
-                    else
-                    {
-                        btnSubmit.Visible = true;
-                        btnUpdate.Visible = false;
-                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Index.aspx");
                 }
             }
             catch (Exception ex)

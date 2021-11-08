@@ -6,7 +6,7 @@ using System.Web.UI;
 
 namespace TMS.CA
 {
-    public partial class DesignationsList : System.Web.UI.Page
+    public partial class UsersList : System.Web.UI.Page
     {
         ErrorFile err = new ErrorFile();
         string ErrorPath = string.Empty;
@@ -35,11 +35,80 @@ namespace TMS.CA
                             btnUpdate.Visible = false;
                         }
                         BindData();
+                        BindDesignations();
                     }
+
                 }
                 else
                 {
                     Response.Redirect("~/Index.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
+
+        }
+        private void BindDesignations()
+        {
+            try
+            {
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Designations"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                ddlDesignations.DataSource = dt;
+                                ddlDesignations.DataTextField = "Name";
+                                ddlDesignations.DataValueField = "DesignationId";
+                                ddlDesignations.DataBind();
+                                ddlDesignations.Items.Insert(0, "Please Select");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
+        }
+        protected void ddlDesignations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int DesignationId = Convert.ToInt32(ddlDesignations.SelectedValue);
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Employees Where DesignationId =" + DesignationId))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                ddlEmployee.DataSource = dt;
+                                ddlEmployee.DataTextField = "Name";
+                                ddlEmployee.DataValueField = "EmployeeId";
+                                ddlEmployee.DataBind();
+                                ddlEmployee.Items.Insert(0, "Please Select");
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -55,11 +124,11 @@ namespace TMS.CA
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM Designations WHERE DesignationId = @DesignationId"))
+                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM Users WHERE UserId = @UserId"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            cmd.Parameters.AddWithValue("@DesignationId", Id);
+                            cmd.Parameters.AddWithValue("@UserId", Id);
                             cmd.Connection = con;
                             con.Open();
                             cmd.ExecuteNonQuery();
@@ -81,11 +150,11 @@ namespace TMS.CA
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Designations where DesignationId=@DesignationId"))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Users where UserId=@UserId"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            cmd.Parameters.AddWithValue("@DesignationId", Id);
+                            cmd.Parameters.AddWithValue("@UserId", Id);
                             cmd.Connection = con;
                             sda.SelectCommand = cmd;
                             using (DataTable dt = new DataTable())
@@ -93,7 +162,7 @@ namespace TMS.CA
                                 sda.Fill(dt);
                                 if (dt.Rows.Count > 0)
                                 {
-                                    txtName.Text = dt.Rows[0]["Name"].ToString();
+                                    txtUserName.Text = dt.Rows[0]["UserName"].ToString();
                                     if (dt.Rows[0]["Status"].ToString() == "1")
                                     {
                                         ddlStatus.SelectedValue = "Active";
@@ -121,18 +190,20 @@ namespace TMS.CA
             {
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 string htmldata = string.Empty;
-                htmldata += "<table class='table table-bordered table-striped mt-3' id='departmentsList'>" +
+                htmldata += "<table class='table table-bordered table-striped mt-3' id='usersList'>" +
                     "<thead>" +
                         "<tr>" +
                             "<th>No</th>" +
-                            "<th>Designation Name</th>" +
+                             "<th>Designation</th>" +
+                             "<th>UserName</th>" +
                             "<th>Status</th>" +
+
                             "<th class='align-middle text-center'>Action</th>" +
                         "</tr>" +
                     "</thead><tbody>";
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Designations"))
+                    using (MySqlCommand cmd = new MySqlCommand("Select usr.*,dsg.Name as Designation from Users AS usr INNER JOIN Designations AS dsg ON usr.DesignationId = dsg.DesignationId"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
@@ -145,9 +216,9 @@ namespace TMS.CA
                                 {
                                     int index = i + 1;
                                     htmldata += "<tr> " +
-                                                    "<td>" + index + "</td>" +
-                                                    "<td>" + dt.Rows[i]["Name"] + "</td>";
-                                   
+                                                    "<td>" + index + "</td>";
+                                    htmldata += "<td>" + dt.Rows[i]["Designation"] + "</td>";
+                                    htmldata += "<td>" + dt.Rows[i]["UserName"] + "</td>";
                                     if (dt.Rows[i]["Status"].ToString() == "1")
                                     {
                                         htmldata += "<td>Active</td>";
@@ -157,8 +228,8 @@ namespace TMS.CA
                                         htmldata += "<td>InActive</td>";
                                     }
                                     htmldata += "<td class='align-middle text-center'>" +
-                                    "<a href=DesignationsList.aspx?Id=" + dt.Rows[i]["DesignationId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
-                                    "<a href=DesignationsList.aspx?Id=" + dt.Rows[i]["DesignationId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
+                                    "<a href=UsersList.aspx?Id=" + dt.Rows[i]["UserId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
+                                    "<a href=UsersList.aspx?Id=" + dt.Rows[i]["UserId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
                                 "</td></tr>";
                                 }
                             }
@@ -174,17 +245,23 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+        private void Reset()
+        {
+            txtUserName.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            ddlDesignations.ClearSelection();
+            ddlStatus.SelectedValue = "Active";
+        }
         protected void btnReset_Click(object sender, EventArgs e)
         {
-            txtName.Text = string.Empty;
-           
+            Reset();
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                string Name = txtName.Text.Trim();
+                string Password = txtPassword.Text.Trim();
                 bool Status = true;
                 if (ddlStatus.SelectedValue == "Active")
                 {
@@ -196,11 +273,13 @@ namespace TMS.CA
                 }
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Designations (Name,Status) VALUES (@Name, @Status)"))
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Users (DesignationId,UserName,Password,Status) VALUES (@DesignationId,@UserName,@Password,@Status)"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@DesignationId", ddlDesignations.SelectedValue);
+                            cmd.Parameters.AddWithValue("@UserName", txtUserName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
                             cmd.Parameters.AddWithValue("@Status", Status);
                             cmd.Connection = con;
                             con.Open();
@@ -210,6 +289,9 @@ namespace TMS.CA
                     }
                 }
                 BindData();
+                BindDesignations();
+                Reset();
+
             }
             catch (Exception ex)
             {
@@ -222,7 +304,7 @@ namespace TMS.CA
             try
             {
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                string Name = txtName.Text.Trim();
+                string Password = txtPassword.Text.Trim();
                 bool Status = true;
                 if (ddlStatus.SelectedValue == "Active")
                 {
@@ -234,14 +316,16 @@ namespace TMS.CA
                 }
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("UPDATE Designations SET Name = @Name, Status = @Status WHERE DesignationId = @DesignationId"))
+                    using (MySqlCommand cmd = new MySqlCommand("UPDATE Users SET DesignationId=@DesignationId,UserName=@UserName,Password=@Password,Status=@Status WHERE UserId = @UserId"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            cmd.Parameters.AddWithValue("@DesignationId", Request.QueryString["Id"]);
-                            cmd.Parameters.AddWithValue("@Name", Name);
+
+                            cmd.Parameters.AddWithValue("@DesignationId", ddlDesignations.SelectedValue);
+                            cmd.Parameters.AddWithValue("@UserName", txtUserName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
                             cmd.Parameters.AddWithValue("@Status", Status);
-                          
+                            cmd.Parameters.AddWithValue("@UserId", Request.QueryString["Id"]);
                             cmd.Connection = con;
                             con.Open();
                             cmd.ExecuteNonQuery();
@@ -250,6 +334,7 @@ namespace TMS.CA
                     }
                 }
                 BindData();
+                BindDesignations();
             }
             catch (Exception ex)
             {

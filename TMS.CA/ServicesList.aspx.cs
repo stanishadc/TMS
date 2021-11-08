@@ -15,13 +15,20 @@ namespace TMS.CA
             ErrorPath = Server.MapPath("ErrorLog.txt");
             try
             {
-                if (!IsPostBack)
+                if (Session["UserId"] != null)
                 {
-                    if (Request.QueryString["Action"] == "Delete")
+                    if (!IsPostBack)
                     {
-                        DeleteRecord(Request.QueryString["Id"]);
+                        if (Request.QueryString["Action"] == "Delete")
+                        {
+                            DeleteRecord(Request.QueryString["Id"]);
+                        }
+                        BindData();
                     }
-                    BindData();
+                }
+                else
+                {
+                    Response.Redirect("~/Index.aspx");
                 }
             }
             catch (Exception ex)

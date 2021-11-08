@@ -15,9 +15,16 @@ namespace TMS.CA
             ErrorPath = Server.MapPath("ErrorLog.txt");
             try
             {
-                if (!IsPostBack)
+                if (Session["UserId"] != null)
                 {
-                    BindClients();
+                    if (!IsPostBack)
+                    {
+                        BindClients();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Index.aspx");
                 }
             }
             catch (Exception ex)
