@@ -33,7 +33,7 @@ namespace TMS.CA
                             {
                                 Session["UserId"] = userId;
                                 Session["Role"] = Name;
-                                Response.Redirect("~/DesignationsList.aspx", false);
+                                Response.Redirect("~/CDashboard.aspx", false);
                                 HttpContext.Current.ApplicationInstance.CompleteRequest();
                             }
                         }

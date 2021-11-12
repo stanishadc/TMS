@@ -1558,10 +1558,9 @@ span.tag.label.label-info {
 /*===========Login page CSS Rules===========*/
 
 .login-body {
-    background: url('../img/tarred.jpeg');
-    background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-image: url('../img/search_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .login-wrapper {
@@ -1575,7 +1574,7 @@ span.tag.label.label-info {
     padding: 30px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 65%;
     transform: translate(-50%, -50%);
     color: #fff;
     transition: 300ms;
@@ -1594,7 +1593,7 @@ span.tag.label.label-info {
 .login-box-form {
     background: #fff;
     color: #333;
-    padding: 45px 30px !important;
+    padding: 15px 20px !important;
 }
 
 .login-box-info a,
@@ -2229,3 +2228,9 @@ span.tag.label.label-info {
         margin-top: 2.7rem !important;
     }
 }
+
+
+
+
+
+
