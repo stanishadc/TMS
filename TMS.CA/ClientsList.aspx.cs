@@ -61,7 +61,6 @@ namespace TMS.CA
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
-
         }
         private void BindData()
         {

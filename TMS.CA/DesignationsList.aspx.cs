@@ -147,7 +147,7 @@ namespace TMS.CA
                                     htmldata += "<tr> " +
                                                     "<td>" + index + "</td>" +
                                                     "<td>" + dt.Rows[i]["Name"] + "</td>";
-                                   
+
                                     if (dt.Rows[i]["Status"].ToString() == "1")
                                     {
                                         htmldata += "<td>Active</td>";
@@ -177,7 +177,7 @@ namespace TMS.CA
         protected void btnReset_Click(object sender, EventArgs e)
         {
             txtName.Text = string.Empty;
-           
+
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -241,7 +241,7 @@ namespace TMS.CA
                             cmd.Parameters.AddWithValue("@DesignationId", Request.QueryString["Id"]);
                             cmd.Parameters.AddWithValue("@Name", Name);
                             cmd.Parameters.AddWithValue("@Status", Status);
-                          
+
                             cmd.Connection = con;
                             con.Open();
                             cmd.ExecuteNonQuery();

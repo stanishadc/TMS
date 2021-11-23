@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="EmployeeDetails.aspx.cs" Inherits="TMS.CA.EmployeeDetails" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -20,22 +21,22 @@
                         <div class="form-group row">
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Designation<span class="text-danger">*</span></label>
-                                <asp:DropDownList ID="ddlDesignations" runat="server" CssClass="custom-select" AutoPostBack="true" ValidationGroup="P" >
+                                <asp:DropDownList ID="ddlDesignations" runat="server" CssClass="custom-select" AutoPostBack="true" ValidationGroup="P">
                                 </asp:DropDownList>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Employee No<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtEmployeeNo" runat="server" CssClass="form-control form-control-primary" placeholder="EmployeeNo"></asp:TextBox>
-                               <%-- <asp:RequiredFieldValidator ID="rfvEmployeeNo" runat="server" ErrorMessage="Please Enter EmployeeNo" ControlToValidate="txtEmployeeNo" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <%-- <asp:RequiredFieldValidator ID="rfvEmployeeNo" runat="server" ErrorMessage="Please Enter EmployeeNo" ControlToValidate="txtEmployeeNo" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>
-                             <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Full Name<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-control-primary" placeholder="Name"></asp:TextBox>
-                               <%-- <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <%-- <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>
                         </div>
                         <div class="form-group row">
-                              <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Mobile<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-primary" placeholder="Mobile"></asp:TextBox>
                                 <%--<asp:RequiredFieldValidator ID="rfvMobile" runat="server" ErrorMessage="Please Enter Mobile" ControlToValidate="txtMobile" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
@@ -48,7 +49,7 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Gender<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlGender" runat="server" CssClass="custom-select">
-                                     <asp:ListItem Value="0">Gender</asp:ListItem>
+                                    <asp:ListItem Value="0">Gender</asp:ListItem>
                                     <asp:ListItem Value="M">Male</asp:ListItem>
                                     <asp:ListItem Value="F">Female</asp:ListItem>
                                 </asp:DropDownList>
@@ -65,7 +66,7 @@
                                     <asp:ListItem Value="Active">Active</asp:ListItem>
                                     <asp:ListItem Value="InActive">InActive</asp:ListItem>
                                 </asp:DropDownList>
-                                  <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group row">

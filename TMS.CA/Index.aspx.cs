@@ -20,7 +20,7 @@ namespace TMS.CA
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("select usr.UserId, des.Name  from Designations as des, Users as usr where des.DesignationId=usr.DesignationId and UserName='" + txtUsername.Text.Trim() + "' and Password='" + txtPassword.Text.Trim() + "'"))
+                    using (MySqlCommand cmd = new MySqlCommand("select usr.UserId, rol.Name from Roles as rol, Users as usr where rol.RoleId=usr.RoleId and UserName='" + txtUsername.Text.Trim() + "' and Password='" + txtPassword.Text.Trim() + "'"))
                     {
                         cmd.Connection = con;
                         con.Open();
@@ -30,6 +30,20 @@ namespace TMS.CA
                             string userId = reader["UserId"].ToString();
                             string Name = reader["Name"].ToString();
                             if (Name == "Admin")
+                            {
+                                Session["UserId"] = userId;
+                                Session["Role"] = Name;
+                                Response.Redirect("~/CDashboard.aspx", false);
+                                HttpContext.Current.ApplicationInstance.CompleteRequest();
+                            }
+                            else if (Name == "Employee")
+                            {
+                                Session["UserId"] = userId;
+                                Session["Role"] = Name;
+                                Response.Redirect("~/CDashboard.aspx", false);
+                                HttpContext.Current.ApplicationInstance.CompleteRequest();
+                            }
+                            else if (Name == "Client")
                             {
                                 Session["UserId"] = userId;
                                 Session["Role"] = Name;

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ClientsList.aspx.cs" Inherits="TMS.CA.ClientsList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <h5 class="mb-0"><strong>Clients List</strong></h5>
+    <h5 class="mb-0"><strong>Clients List</strong></h5>
     <span class="text-secondary">Home <i class="fa fa-angle-right"></i>&nbsp;Clients List</span>
     <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
         <div class="product-list">

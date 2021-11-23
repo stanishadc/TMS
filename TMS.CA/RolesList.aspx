@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RolesList.aspx.cs" Inherits="TMS.CA.RolesList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h5 class="mb-0"><strong>Roles</strong></h5>
+    <h5 class="mb-0"><strong>Roles</strong></h5>
     <span class="text-secondary">Home <i class="fa fa-angle-right"></i>&nbsp;Roles</span>
     <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
         <div class="product-list">
@@ -14,7 +15,7 @@
                     <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#RoleModal" data-whatever="@mdo"><i class="fa fa-plus"></i>Add Role</button>
                 </div>
             </div>
-            <div class="table-responsive product-list" id="htmlDiv" runat="server">               
+            <div class="table-responsive product-list" id="htmlDiv" runat="server">
             </div>
         </div>
     </div>
@@ -43,12 +44,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">                    
+                <div class="modal-footer">
                     <asp:Button ID="btnSubmit" runat="server" Text="Add" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
                     <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="btn btn-primary" Visible="false" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </asp:Content>

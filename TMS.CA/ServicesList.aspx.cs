@@ -62,7 +62,6 @@ namespace TMS.CA
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
-
         }
         private void BindData()
         {
@@ -96,7 +95,7 @@ namespace TMS.CA
                                     htmldata += "<tr> " +
                                                     "<td>" + index + "</td>" +
                                                     "<td>" + dt.Rows[i]["Name"] + "</td>";
-                                   
+
                                     if (dt.Rows[i]["Status"].ToString() == "1")
                                     {
                                         htmldata += "<td>Active</td>";

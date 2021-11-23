@@ -1,19 +1,2 @@
-﻿Time: 08-11-2021 12:10:26 PM
------------------------------------------------------------
-Message: Unknown column 'DesginationId' in 'where clause'
-StackTrace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   at TMS.CA.UsersList.ddlDesignations_SelectedIndexChanged(Object sender, EventArgs e) in D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\UsersList.aspx.cs:line 98
-Source: MySql.Data
-TargetSite: MySql.Data.MySqlClient.MySqlPacket ReadPacket()
------------------------------------------------------------
+﻿
 

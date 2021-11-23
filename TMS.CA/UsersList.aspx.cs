@@ -36,8 +36,8 @@ namespace TMS.CA
                         }
                         BindData();
                         BindDesignations();
+                        BindRoles();
                     }
-
                 }
                 else
                 {
@@ -49,7 +49,38 @@ namespace TMS.CA
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
-
+        }
+        private void BindRoles()
+        {
+            try
+            {
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Roles"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                ddlRoles.DataSource = dt;
+                                ddlRoles.DataTextField = "Name";
+                                ddlRoles.DataValueField = "RoleId";
+                                ddlRoles.DataBind();
+                                ddlRoles.Items.Insert(0, "Please Select");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
         }
         private void BindDesignations()
         {

@@ -94,13 +94,23 @@
                                         <span class="none">Employees <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
                                     <ul class="children" id="employee">
+                                          <li class="child"><a href="DesignationsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Desgination</a></li>
                                         <li class="child"><a href="EmployeeList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employees</a></li>
                                         <li class="child"><a href="EDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Docs</a></li>
-                                        <li class="child"><a href="DesignationsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Desgination</a></li>
+                                          <li class="child"><a href="EmployeeServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Services</a></li>
+                                    </ul>
+                                </li>
+
+                                  <li class="parent">
+                                    <a href="#" onclick="toggle_menu('users'); return false" class=""><i class="fa fa-tasks mr-3"></i>
+                                        <span class="none">Users <i class="fa fa-angle-down pull-right align-bottom"></i></span>
+                                    </a>
+                                    <ul class="children" id="users">                                        
                                         <li class="child"><a href="UsersList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Users</a></li>  
                                           <li class="child"><a href="RolesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Roles</a></li> 
                                     </ul>
                                 </li>
+
                                 <li class="parent">
                                     <a href="#" onclick="toggle_menu('clients'); return false" class=""><i class="fa fa-tasks mr-3"></i>
                                         <span class="none">Clients <i class="fa fa-angle-down pull-right align-bottom"></i></span>
@@ -108,6 +118,7 @@
                                     <ul class="children" id="clients">                                        
                                         <li class="child"><a href="ClientsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Clients List</a></li>
                                         <li class="child"><a href="CDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Docs</a></li>
+                                         <li class="child"><a href="ClientServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Services</a></li>
                                     </ul>
                                 </li>
                                  <li class="parent">

@@ -2054,11 +2054,13 @@
     <Content Include="CDashboard.aspx" />
     <Content Include="CDocuments.aspx" />
     <Content Include="ClientDetails.aspx" />
+    <Content Include="ClientServices.aspx" />
     <Content Include="ClientsList.aspx" />
     <Content Include="DesignationsList.aspx" />
     <Content Include="EDocuments.aspx" />
     <Content Include="EmployeeDetails.aspx" />
     <Content Include="EmployeeList.aspx" />
+    <Content Include="EmployeeServices.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="ErrorLog.txt" />
     <Content Include="Index.aspx" />
@@ -2097,6 +2099,13 @@
     <Compile Include="ClientDetails.aspx.designer.cs">
       <DependentUpon>ClientDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClientServices.aspx.cs">
+      <DependentUpon>ClientServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientServices.aspx.designer.cs">
+      <DependentUpon>ClientServices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientsList.aspx.cs">
       <DependentUpon>ClientsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2131,6 +2140,13 @@
     </Compile>
     <Compile Include="EmployeeList.aspx.designer.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeServices.aspx.cs">
+      <DependentUpon>EmployeeServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeServices.aspx.designer.cs">
+      <DependentUpon>EmployeeServices.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

@@ -95,7 +95,7 @@ namespace TMS.CA
                                 sda.Fill(dt);
                                 if (dt.Rows.Count > 0)
                                 {
-                                    
+
                                     txtName.Text = dt.Rows[0]["Name"].ToString();
                                     ddlCategory.SelectedValue = dt.Rows[0]["CategoryId"].ToString();
                                     if (dt.Rows[0]["Status"].ToString() == "1")
@@ -120,7 +120,7 @@ namespace TMS.CA
         }
         private void Reset()
         {
-            
+
             txtName.Text = string.Empty;
             ddlCategory.ClearSelection();
             ddlStatus.SelectedValue = "Active";
@@ -189,7 +189,7 @@ namespace TMS.CA
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                           
+
                             cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
                             cmd.Parameters.AddWithValue("@CategoryId", ddlCategory.SelectedValue);
                             cmd.Parameters.AddWithValue("@Status", Status);

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="EDocuments.aspx.cs" Inherits="TMS.CA.EDocuments" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h5 class="mb-0"><strong>Employees Documents</strong></h5>
+    <h5 class="mb-0"><strong>Employees Documents</strong></h5>
     <span class="text-secondary">Dashboard <i class="fa fa-angle-right"></i>&nbsp;Employee Documents</span>
     <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
         <div class="product-list">
@@ -30,7 +31,7 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Document Name<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtDocumentName" runat="server" CssClass="form-control form-control-primary" placeholder="DocumentName"></asp:TextBox>
-                               <%-- <asp:RequiredFieldValidator ID="rfvDocumentName" runat="server" ErrorMessage="Please Select Document" ControlToValidate="txtDocumentName" InitialValue="-1" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <%-- <asp:RequiredFieldValidator ID="rfvDocumentName" runat="server" ErrorMessage="Please Select Document" ControlToValidate="txtDocumentName" InitialValue="-1" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>
                         </div>
                         <div class="form-group row">
