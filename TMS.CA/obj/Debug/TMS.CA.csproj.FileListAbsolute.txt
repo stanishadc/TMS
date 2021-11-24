@@ -52,7 +52,6 @@ D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\roslyn\VBCSCompiler.exe
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\roslyn\VBCSCompiler.exe.config
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\obj\Debug\TMS.CA.csprojAssemblyReference.cache
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\obj\Debug\TMS.CA.csproj.CoreCompileInputs.cache
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\obj\Debug\TMS.CA.csproj.CopyComplete
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\obj\Debug\TMS.CA.dll
@@ -79,3 +78,4 @@ D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\System.Buffers.xml
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\System.Memory.xml
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\System.Numerics.Vectors.xml
 D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\obj\Debug\TMS.CA.csprojAssemblyReference.cache

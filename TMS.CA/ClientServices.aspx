@@ -22,7 +22,6 @@
                                 <label for="validationCustom01">Client Name<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlClient" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlClient_SelectedIndexChanged">
                             </asp:DropDownList>
-                                
                             </div>
                              <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Category<span class="text-danger">*</span></label>

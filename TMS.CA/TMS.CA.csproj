@@ -2061,6 +2061,7 @@
     <Content Include="EmployeeDetails.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="EmployeeServices.aspx" />
+    <Content Include="EmployeeTasks.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="ErrorLog.txt" />
     <Content Include="Index.aspx" />
@@ -2147,6 +2148,13 @@
     </Compile>
     <Compile Include="EmployeeServices.aspx.designer.cs">
       <DependentUpon>EmployeeServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTasks.aspx.cs">
+      <DependentUpon>EmployeeTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeTasks.aspx.designer.cs">
+      <DependentUpon>EmployeeTasks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

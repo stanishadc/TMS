@@ -92,7 +92,7 @@ namespace TMS.CA
                     "</thead><tbody>";
                 using (MySqlConnection con = new MySqlConnection(dbConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("Select * from ClientServices where ClientId = '" + ddlClient.SelectedValue + "'"))
+                    using (MySqlCommand cmd = new MySqlCommand("Select clis.*,ser.Name as Services from ClientServices AS clis INNER JOIN Services AS ser ON clis.ServiceId = ser.ServiceId where clis.ClientId='" + ddlClient.SelectedValue + "'"))
 
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
@@ -107,7 +107,7 @@ namespace TMS.CA
                                     int index = i + 1;
                                     htmldata += "<tr> " +
                                                     "<td>" + index + "</td>" +
-                                                    "<td>" + dt.Rows[i]["ServiceId"] + "</td>";
+                                                    "<td>" + dt.Rows[i]["Services"] + "</td>";
 
                                     htmldata += "<td class='align-middle text-center'>" +
                                     "<a href=ClientServices.aspx?Id=" + dt.Rows[i]["ClientServiceId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +

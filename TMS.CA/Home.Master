@@ -98,6 +98,7 @@
                                         <li class="child"><a href="EmployeeList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employees</a></li>
                                         <li class="child"><a href="EDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Docs</a></li>
                                           <li class="child"><a href="EmployeeServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Services</a></li>
+                                         <li class="child"><a href="EmployeeTasks.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Tasks</a></li>
                                     </ul>
                                 </li>
 
