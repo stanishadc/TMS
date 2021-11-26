@@ -12,7 +12,7 @@
                     <h6 class="mb-4 bc-header">Employee Tasks</h6>
                 </div>
                 <div class="col-sm-4 text-right pb-3">
-                    <a href="EmployeesList.aspx" class="btn btn-round btn-theme"><i class="fa fa-list"></i>&nbsp;Employees List</a>
+                    <a href="EmployeeTasksList.aspx" class="btn btn-round btn-theme"><i class="fa fa-list"></i>&nbsp;EmployeesTaskList</a>
                 </div>
             </div>
             <div class="col-sm-12">
@@ -50,8 +50,9 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Task Status<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="custom-select">
-                                    <asp:ListItem Value="Pending">Pending</asp:ListItem>
-                                    <asp:ListItem Value="Completed">Completed</asp:ListItem>
+                                    <asp:ListItem Value="P">Pending</asp:ListItem>
+                                    <asp:ListItem Value="C">Completed</asp:ListItem>
+                                      <asp:ListItem Value="R">Requested Client</asp:ListItem>
                                 </asp:DropDownList>
                                 <%-- <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>

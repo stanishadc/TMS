@@ -31,7 +31,6 @@ namespace TMS.CA
                             btnSubmit.Visible = true;
                             btnUpdate.Visible = false;
                         }
-                        BindCategory();
                     }
                 }
                 else
@@ -46,72 +45,7 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-        private void BindCategory()
-        {
-            try
-            {
-                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                using (MySqlConnection con = new MySqlConnection(databaseConnection))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Category"))
-                    {
-                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
-                        {
-                            cmd.Connection = con;
-                            sda.SelectCommand = cmd;
-                            using (DataTable dt = new DataTable())
-                            {
-                                sda.Fill(dt);
-                                ddlCategory.DataSource = dt;
-                                ddlCategory.DataTextField = "Name";
-                                ddlCategory.DataValueField = "CategoryId";
-                                ddlCategory.DataBind();
-                                ddlCategory.Items.Insert(0, "Please Select");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                err.LogError(ex, ErrorPath);
-                Response.Redirect("Error.aspx");
-            }
-        }
-        protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int CategoryId = Convert.ToInt32(ddlCategory.SelectedValue);
-                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                using (MySqlConnection con = new MySqlConnection(databaseConnection))
-
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Services Where CategoryId =" + CategoryId))
-                    {
-                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
-                        {
-                            cmd.Connection = con;
-                            sda.SelectCommand = cmd;
-                            using (DataTable dt = new DataTable())
-                            {
-                                sda.Fill(dt);
-                                ddlService.DataSource = dt;
-                                ddlService.DataTextField = "Name";
-                                ddlService.DataValueField = "ServiceId";
-                                ddlService.DataBind();
-                                ddlService.Items.Insert(0, "Please Select");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                err.LogError(ex, ErrorPath);
-                Response.Redirect("Error.aspx");
-            }
-        }
+     
         private void BindDataById(string Id)
         {
             try

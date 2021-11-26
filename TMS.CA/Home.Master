@@ -98,7 +98,7 @@
                                         <li class="child"><a href="EmployeeList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employees</a></li>
                                         <li class="child"><a href="EDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Docs</a></li>
                                           <li class="child"><a href="EmployeeServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Services</a></li>
-                                         <li class="child"><a href="EmployeeTasks.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Tasks</a></li>
+                                         <li class="child"><a href="EmployeeTasksList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>EmployeeTasksList</a></li>
                                     </ul>
                                 </li>
 
@@ -119,7 +119,7 @@
                                     <ul class="children" id="clients">                                        
                                         <li class="child"><a href="ClientsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Clients List</a></li>
                                         <li class="child"><a href="CDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Docs</a></li>
-                                         <li class="child"><a href="ClientServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Services</a></li>
+                                         <li class="child"><a href="ClientServicesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>ClientServicesList</a></li>
                                     </ul>
                                 </li>
                                  <li class="parent">

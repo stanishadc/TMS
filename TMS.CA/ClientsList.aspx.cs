@@ -106,7 +106,7 @@ namespace TMS.CA
                                     }
                                     htmldata += "<td class='align-middle text-center'>" +
                                     "<a href=ClientDetails.aspx?Id=" + dt.Rows[i]["ClientId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
-                                    "<a href=X=ClientsList.aspx?Id=" + dt.Rows[i]["ClientId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
+                                    "<a href=ClientsList.aspx?Id=" + dt.Rows[i]["ClientId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
                                 "</td></tr>";
                                 }
                             }

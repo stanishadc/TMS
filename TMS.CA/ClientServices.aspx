@@ -2,16 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h5 class="mb-0"><strong>Employees Services</strong></h5>
-    <span class="text-secondary">Dashboard <i class="fa fa-angle-right"></i>&nbsp;Employee Services</span>
+     <h5 class="mb-0"><strong>Client Services</strong></h5>
+    <span class="text-secondary">Dashboard <i class="fa fa-angle-right"></i>&nbsp;Client Services</span>
     <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
         <div class="product-list">
             <div class="row border-bottom mb-4">
                 <div class="col-sm-8 pt-2">
-                    <h6 class="mb-4 bc-header">Employee Services</h6>
+                    <h6 class="mb-4 bc-header">Client Services</h6>
                 </div>
                 <div class="col-sm-4 text-right pb-3">
-                    <a href="EmployeesList.aspx" class="btn btn-round btn-theme"><i class="fa fa-list"></i>&nbsp;Employees List</a>
+                    <a href="ClientServicesList.aspx" class="btn btn-round btn-theme"><i class="fa fa-list"></i>&nbsp;ClientServicesList</a>
                 </div>
             </div>
             <div class="col-sm-12">

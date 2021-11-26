@@ -33,22 +33,6 @@
                                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-primary" placeholder="Email"></asp:TextBox>
                             </div>
                         </div>
-
-                         <div class="form-group row">
-
-                             <div class="col-sm-6 col-12">
-                                <label for="validationCustom01">Category<span class="text-danger">*</span></label>
-                                   <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
-                            </asp:DropDownList>
-                               
-                            </div>
-                              <div class="col-sm-6 col-12">
-                                <label for="validationCustom01">Service<span class="text-danger">*</span></label>
-                                <asp:DropDownList ID="ddlService" runat="server" CssClass="custom-select" AutoPostBack="true"  >
-                                </asp:DropDownList>
-                            </div>
-                        </div>
-
                         <div class="form-group row">
                            <div class="col-sm-8 col-12">
                                 <label for="validationCustom01">Address<span class="text-danger">*</span></label>

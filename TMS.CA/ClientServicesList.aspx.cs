@@ -6,7 +6,7 @@ using System.Web.UI;
 
 namespace TMS.CA
 {
-    public partial class ServicesList : System.Web.UI.Page
+    public partial class ClientServicesList : System.Web.UI.Page
     {
         ErrorFile err = new ErrorFile();
         string ErrorPath = string.Empty;
@@ -23,7 +23,8 @@ namespace TMS.CA
                         {
                             DeleteRecord(Request.QueryString["Id"]);
                         }
-                        BindData();
+
+                        BindClients();
                     }
                 }
                 else
@@ -31,28 +32,35 @@ namespace TMS.CA
                     Response.Redirect("~/Index.aspx");
                 }
             }
+
             catch (Exception ex)
             {
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
         }
-        private void DeleteRecord(string Id)
+        private void BindClients()
         {
             try
             {
                 string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM Services WHERE ServiceId = @ServiceId"))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT ClientId,Name FROM Clients"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            cmd.Parameters.AddWithValue("@ServiceId", Id);
                             cmd.Connection = con;
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                            con.Close();
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                ddlClient.DataSource = dt;
+                                ddlClient.DataTextField = "Name";
+                                ddlClient.DataValueField = "ClientId";
+                                ddlClient.DataBind();
+                                ddlClient.Items.Insert(0, "Please Select");
+                            }
                         }
                     }
                 }
@@ -63,27 +71,28 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+        protected void ddlClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindData();
+        }
         private void BindData()
         {
             try
             {
-                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                string dbConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
                 string htmldata = string.Empty;
-                htmldata += "<table class='table table-bordered table-striped mt-3' id='ServicesList'>" +
+                htmldata += "<table class='table table-bordered table-striped mt-3' id='commissionTable'>" +
                     "<thead>" +
                         "<tr>" +
-                            "<th>No</th>" +
-                            "<th>Category Name</th>" +
-                            "<th>Service Name</th>" +
-                            "<th>Status</th>" +
-                            "<th class='align-middle text-center'>Action</th>" +
+                           "<th>No</th>" +
+                                 //"<th>Category </th>" +
+                                 "<th>Service Name </th>" +
                         "</tr>" +
                     "</thead><tbody>";
-                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+                using (MySqlConnection con = new MySqlConnection(dbConnection))
                 {
-                   // using (MySqlCommand cmd = new MySqlCommand("Select * From Services"))
-                    using (MySqlCommand cmd = new MySqlCommand("Select ser.*,cat.Name as Category from Services AS ser INNER JOIN Category AS cat ON ser.CategoryId = cat.CategoryId "))
-                    // using (MySqlCommand cmd = new MySqlCommand("Select emps.*,ser.Name as Services from EmployeeServices AS emps INNER JOIN Services AS ser ON emps.ServiceId = ser.ServiceId where emps.EmployeeId='" + ddlEmployees.SelectedValue + "'"))
+                    using (MySqlCommand cmd = new MySqlCommand("Select clis.*,ser.Name as Services from ClientServices AS clis INNER JOIN Services AS ser ON clis.ServiceId = ser.ServiceId where clis.ClientId='" + ddlClient.SelectedValue + "'"))
+
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
@@ -97,21 +106,10 @@ namespace TMS.CA
                                     int index = i + 1;
                                     htmldata += "<tr> " +
                                                     "<td>" + index + "</td>" +
-                                                      "<td>" + dt.Rows[i]["Category"] + "</td>"+
-                                                      "<td>" + dt.Rows[i]["Name"] + "</td>";
+                                                    "<td>" + dt.Rows[i]["Services"] + "</td>";
 
-
-                                    if (dt.Rows[i]["Status"].ToString() == "1")
-                                    {
-                                        htmldata += "<td>Active</td>";
-                                    }
-                                    else
-                                    {
-                                        htmldata += "<td>InActive</td>";
-                                    }
                                     htmldata += "<td class='align-middle text-center'>" +
-                                    "<a href=ServicesDetails.aspx?Id=" + dt.Rows[i]["ServiceId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
-                                    "<a href=ServicesList.aspx?Id=" + dt.Rows[i]["ServiceId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
+                                    "<a href=ClientServicesList.aspx?Id=" + dt.Rows[i]["ClientServiceId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
                                 "</td></tr>";
                                 }
                             }
@@ -127,5 +125,32 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+        private void DeleteRecord(string Id)
+        {
+            try
+            {
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM ClientServices WHERE ClientServiceId=@ClientServiceId"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Parameters.AddWithValue("@ClientServiceId", Id);
+                            cmd.Connection = con;
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
+        }
+       
     }
 }
