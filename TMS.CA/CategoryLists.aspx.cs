@@ -175,7 +175,6 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-        
         protected void btnReset_Click(object sender, EventArgs e)
         {
             txtName.Text = string.Empty;

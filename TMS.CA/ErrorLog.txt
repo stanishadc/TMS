@@ -38,3 +38,27 @@ Source: MySql.Data
 TargetSite: Void Open()
 -----------------------------------------------------------
 
+Time: 29-11-2021 03:53:36 PM
+-----------------------------------------------------------
+Message: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. Learn more at
+StackTrace:    at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at TMS.CA.EmailRequest.btnEmailSend_Click(Object sender, EventArgs e) in D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\EmailRequest.aspx.cs:line 86
+Source: System
+TargetSite: Void CheckResponse(System.Net.Mail.SmtpStatusCode, System.String)
+-----------------------------------------------------------
+
+Time: 29-11-2021 04:11:15 PM
+-----------------------------------------------------------
+Message: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. Learn more at
+StackTrace:    at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at TMS.CA.EmailRequest.btnEmailSend_Click(Object sender, EventArgs e) in D:\Devi\CompanyProjects\TMS\TMS\TMS.CA\EmailRequest.aspx.cs:line 86
+Source: System
+TargetSite: Void CheckResponse(System.Net.Mail.SmtpStatusCode, System.String)
+-----------------------------------------------------------
+

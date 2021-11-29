@@ -2059,6 +2059,7 @@
     <Content Include="ClientsList.aspx" />
     <Content Include="DesignationsList.aspx" />
     <Content Include="EDocuments.aspx" />
+    <Content Include="EmailRequest.aspx" />
     <Content Include="EmployeeDetails.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="EmployeeServices.aspx" />
@@ -2136,6 +2137,13 @@
     </Compile>
     <Compile Include="EDocuments.aspx.designer.cs">
       <DependentUpon>EDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailRequest.aspx.cs">
+      <DependentUpon>EmailRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailRequest.aspx.designer.cs">
+      <DependentUpon>EmailRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeDetails.aspx.cs">
       <DependentUpon>EmployeeDetails.aspx</DependentUpon>

@@ -31,7 +31,7 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Document Name<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtDocumentName" runat="server" CssClass="form-control form-control-primary" placeholder="DocumentName"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="rfvDocumentName" runat="server" ErrorMessage="Please Select Document" ControlToValidate="txtDocumentName" InitialValue="-1" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                 <asp:RequiredFieldValidator ID="rfvDocumentName" runat="server" ErrorMessage="Please Select Document" ControlToValidate="txtDocumentName" InitialValue="-1" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group row">

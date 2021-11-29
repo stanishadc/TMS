@@ -17,7 +17,7 @@
                     <div class="col-sm-4 col-12">
                         <label for="recipient-name" class="col-form-label">Category Name:<span class="text-danger">*</span></label>
                         <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
-                        <%--<asp:RequiredFieldValidator runat="server"  ID="rfvName" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                        <asp:RequiredFieldValidator runat="server" ID="rfvName" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
 
                     <div class="col-sm-4 col-12">
@@ -26,10 +26,9 @@
                             <asp:ListItem Value="Active">Active</asp:ListItem>
                             <asp:ListItem Value="InActive">InActive</asp:ListItem>
                         </asp:DropDownList>
-                        <%--  <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                        <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <div class="col-sm-4 col-12">
                         <asp:Button ID="btnSubmit" runat="server" Text="Add" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
