@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="EmployeeTasksList.aspx.cs" Inherits="TMS.CA.EmployeeTasksList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h5 class="mb-0"><strong>Employees Tasks</strong></h5>
+    <h5 class="mb-0"><strong>Employees Tasks</strong></h5>
     <span class="text-secondary">Dashboard <i class="fa fa-angle-right"></i>&nbsp;Employee  Tasks</span>
     <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
         <div class="product-list">
@@ -24,10 +25,10 @@
                                 </asp:DropDownList>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
+            <div class="table-responsive product-list" id="htmlDiv" runat="server">
+            </div>
         </div>
-        <div class="table-responsive product-list" id="htmlDiv" runat="server">
-        </div>
-    </div>
 </asp:Content>

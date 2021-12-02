@@ -11,7 +11,6 @@ namespace TMS.CA
     {
         ErrorFile err = new ErrorFile();
         string ErrorPath = string.Empty;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             ErrorPath = Server.MapPath("ErrorLog.txt");
@@ -40,7 +39,6 @@ namespace TMS.CA
                 {
                     Response.Redirect("~/Index.aspx");
                 }
-
             }
             catch (Exception ex)
             {
@@ -173,6 +171,17 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+
+        private void Reset()
+        {
+            txtName.Text = string.Empty;
+            ddlStatus.SelectedValue = "Available";
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -204,6 +213,7 @@ namespace TMS.CA
                     }
                 }
                 BindData();
+                Reset();
             }
             catch (Exception ex)
             {

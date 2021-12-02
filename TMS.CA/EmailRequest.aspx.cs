@@ -3,6 +3,7 @@ using System.Net.Mail;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Data;
+using System.IO;
 
 namespace TMS.CA
 {
@@ -27,14 +28,23 @@ namespace TMS.CA
                     Response.Redirect("~/Index.aspx");
                 }
             }
-
             catch (Exception ex)
             {
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
         }
-
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+        private void Reset()
+        {
+            ddlClient.ClearSelection();
+            txtemail.Text = string.Empty;
+            txtsub.Text = string.Empty;
+            //txtmsg.Text = string.Empty;
+        }
         private void BindClients()
         {
             try
@@ -76,6 +86,11 @@ namespace TMS.CA
                 mail.From = new MailAddress("dccode15@gmail.com");
                 mail.Subject = txtsub.Text;
                 mail.Body = Request.Form["txtmsg"];
+                if (fileUploader.HasFile)
+                {
+                    string fileName = Path.GetFileName(fileUploader.PostedFile.FileName);
+                    mail.Attachments.Add(new Attachment(fileUploader.PostedFile.InputStream, fileName));
+                }
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
@@ -84,13 +99,14 @@ namespace TMS.CA
                 smtp.EnableSsl = true;
 
                 smtp.Send(mail);
-                lblmsg.Text = "Mail Send .......";
+                lblmsg.Text = "Mail Send Sucessfully.......";
             }
             catch (Exception ex)
             {
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
+            Reset();
         }
     }
 }

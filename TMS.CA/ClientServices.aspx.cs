@@ -23,7 +23,6 @@ namespace TMS.CA
                         {
                             DeleteRecord(Request.QueryString["Id"]);
                         }
-
                         BindClients();
                         BindCategory();
                     }
@@ -33,7 +32,6 @@ namespace TMS.CA
                     Response.Redirect("~/Index.aspx");
                 }
             }
-
             catch (Exception ex)
             {
                 err.LogError(ex, ErrorPath);
@@ -218,6 +216,18 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+        private void Reset()
+        {
+            txtDescription.Text = string.Empty;
+            ddlClient.ClearSelection();
+            ddlCategory.ClearSelection();
+            ddlService.ClearSelection();
+            ddlClient.ClearSelection();
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -243,7 +253,7 @@ namespace TMS.CA
                         }
                     }
                 }
-
+                Reset();
             }
             catch (Exception ex)
             {

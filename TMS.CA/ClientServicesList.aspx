@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ClientServicesList.aspx.cs" Inherits="TMS.CA.ClientServicesList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,7 +22,7 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Client Name<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlClient" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlClient_SelectedIndexChanged">
-                            </asp:DropDownList>
+                                </asp:DropDownList>
                             </div>
                         </div>
                     </div>

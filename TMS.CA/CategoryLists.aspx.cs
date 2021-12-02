@@ -36,7 +36,6 @@ namespace TMS.CA
                             btnUpdate.Visible = false;
                         }
                         BindData();
-
                     }
                 }
                 else
@@ -175,10 +174,17 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-        protected void btnReset_Click(object sender, EventArgs e)
+
+        private void Reset()
         {
             txtName.Text = string.Empty;
-            
+            ddlStatus.SelectedValue = "Active";
+        }
+
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -211,6 +217,7 @@ namespace TMS.CA
                     }
                 }
                 BindData();
+                Reset();
             }
             catch (Exception ex)
             {

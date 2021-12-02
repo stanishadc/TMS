@@ -23,11 +23,12 @@
                                 <label for="validationCustom01">Category<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlCategory" runat="server" CssClass="custom-select" AutoPostBack="true" ValidationGroup="P">
                                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator runat="server"  ID="rfvCategory" ErrorMessage="Please Select Category" ControlToValidate="ddlCategory" InitialValue="-1" ValidationGroup="g1" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Service Name<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-control-primary" placeholder="Name"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                 <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Status<span class="text-danger">*</span></label>
@@ -35,7 +36,7 @@
                                     <asp:ListItem Value="Active">Active</asp:ListItem>
                                     <asp:ListItem Value="InActive">InActive</asp:ListItem>
                                 </asp:DropDownList>
-                                <%-- <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                 <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group row">

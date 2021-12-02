@@ -33,6 +33,15 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeNo;
 
         /// <summary>
+        /// rfvEmployeeNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmployeeNo;
+
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
+        /// rfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+
+        /// <summary>
         /// txtMobile control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace TMS.CA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMobile;
+
+        /// <summary>
+        /// rfvMobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMobile;
 
         /// <summary>
         /// txtDateOfJoin control.

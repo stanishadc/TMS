@@ -38,7 +38,6 @@
             <div class="login-box">
                 <h2 class=" mb-5"><i class="fa fa-builing text-primary"></i>&nbsp; Welcome To Login Page</h2>
                 <div class="row">
-
                     <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
                         <h3 class="text-center border-bottom pb-2 mb-4">Login</h3>
                         <small class="text-muted bc-description">Sign in with your credentials</small>
@@ -49,14 +48,12 @@
                                 </div>
                                 <asp:TextBox ID="txtUsername" CssClass="form-control mt-0" placeholder="Username" runat="server" aria-describedby="basic-addon1"></asp:TextBox>
                             </div>
-
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span>
                                 </div>
                                 <asp:TextBox ID="txtPassword" CssClass="form-control mt-0" TextMode="Password" placeholder="Password" runat="server" aria-describedby="basic-addon2"></asp:TextBox>
                             </div>
-
                             <div class="form-group">
                                 <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-theme btn-block p-2 mb-1" OnClick="btnLogin_Click" />
                             </div>

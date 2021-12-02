@@ -33,6 +33,15 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.DropDownList ddlDesignations;
 
         /// <summary>
+        /// rfvDesignations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesignations;
+
+        /// <summary>
         /// ddlEmployee control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
 
         /// <summary>
+        /// rfvUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserName;
+
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace TMS.CA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// rfvPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
 
         /// <summary>
         /// ddlStatus control.

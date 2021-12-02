@@ -90,8 +90,7 @@ namespace TMS.CA
                     "</thead><tbody>";
                 using (MySqlConnection con = new MySqlConnection(dbConnection))
                 {
-                    //using (MySqlCommand cmd = new MySqlCommand("Select clis.*,ser.Name as Services from ClientServices AS clis INNER JOIN Services AS ser ON clis.ServiceId = ser.ServiceId where clis.ClientId='" + ddlClient.SelectedValue + "'"))
-                    //using (MySqlCommand cmd = new MySqlCommand("Select * from EmployeeServices where EmployeeId = '" + ddlEmployees.SelectedValue + "'"))
+                   
                     using (MySqlCommand cmd = new MySqlCommand("Select emps.*,ser.Name as Services from EmployeeServices AS emps INNER JOIN Services AS ser ON emps.ServiceId = ser.ServiceId where emps.EmployeeId='" + ddlEmployees.SelectedValue + "'"))
 
                     {
@@ -217,6 +216,17 @@ namespace TMS.CA
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
+        }
+        private void Reset()
+        {
+            txtDescription.Text = string.Empty;
+            ddlEmployees.ClearSelection();
+            ddlCategory.ClearSelection();
+            ddlService.ClearSelection();
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {

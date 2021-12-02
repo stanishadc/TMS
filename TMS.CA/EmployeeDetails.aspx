@@ -27,19 +27,19 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Employee No<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtEmployeeNo" runat="server" CssClass="form-control form-control-primary" placeholder="EmployeeNo"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="rfvEmployeeNo" runat="server" ErrorMessage="Please Enter EmployeeNo" ControlToValidate="txtEmployeeNo" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <asp:RequiredFieldValidator ID="rfvEmployeeNo" runat="server" ErrorMessage="Please Enter EmployeeNo" ControlToValidate="txtEmployeeNo" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Full Name<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-control-primary" placeholder="Name"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Mobile<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-primary" placeholder="Mobile"></asp:TextBox>
-                                <%--<asp:RequiredFieldValidator ID="rfvMobile" runat="server" ErrorMessage="Please Enter Mobile" ControlToValidate="txtMobile" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <asp:RequiredFieldValidator ID="rfvMobile" runat="server" ErrorMessage="Please Enter Mobile" ControlToValidate="txtMobile" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Date of Join<span class="text-danger">*</span></label>

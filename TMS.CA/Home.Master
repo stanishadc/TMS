@@ -31,7 +31,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <!--Page loader-->
         <div class="loader-wrapper">
@@ -51,7 +51,6 @@
                     </div>
                 </div>
                 <!--Logo-->
-
                 <!--Header Menu-->
                 <div class="col-sm-9 header-menu pt-2 pb-0">
                     <div class="row">
@@ -94,46 +93,45 @@
                                         <span class="none">Employees <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
                                     <ul class="children" id="employee">
-                                          <li class="child"><a href="DesignationsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Desgination</a></li>
                                         <li class="child"><a href="EmployeeList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employees</a></li>
                                         <li class="child"><a href="EDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Docs</a></li>
-                                          <li class="child"><a href="EmployeeServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Services</a></li>
-                                         <li class="child"><a href="EmployeeTasksList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>EmployeeTasksList</a></li>
+                                        <li class="child"><a href="EmployeeServices.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Employee Services</a></li>
+                                        <li class="child"><a href="EmployeeTasksList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>EmployeeTasksList</a></li>
                                     </ul>
                                 </li>
-                                 <li class="parent">
+                                <li class="parent">
                                     <a href="#" onclick="toggle_menu('email'); return false" class=""><i class="fa fa-tasks mr-3"></i>
                                         <span class="none">Email Request <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
-                                    <ul class="children" id="email">                                        
-                                        <li class="child"><a href="EmailRequest.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Email </a></li>  
-                                        
+                                    <ul class="children" id="email">
+                                        <li class="child"><a href="EmailRequest.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Email </a></li>
                                     </ul>
                                 </li>
-                                  <li class="parent">
+                                <li class="parent">
                                     <a href="#" onclick="toggle_menu('users'); return false" class=""><i class="fa fa-tasks mr-3"></i>
                                         <span class="none">Users <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
-                                    <ul class="children" id="users">                                        
-                                        <li class="child"><a href="UsersList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Users</a></li>  
-                                          <li class="child"><a href="RolesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Roles</a></li> 
+                                    <ul class="children" id="users">
+                                        <li class="child"><a href="UsersList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Users</a></li>
+                                        <li class="child"><a href="RolesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Roles</a></li>
+                                        <li class="child"><a href="DesignationsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Desgination</a></li>
                                     </ul>
                                 </li>
                                 <li class="parent">
                                     <a href="#" onclick="toggle_menu('clients'); return false" class=""><i class="fa fa-tasks mr-3"></i>
                                         <span class="none">Clients <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
-                                    <ul class="children" id="clients">                                        
+                                    <ul class="children" id="clients">
                                         <li class="child"><a href="ClientsList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Clients List</a></li>
                                         <li class="child"><a href="CDocuments.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Client Docs</a></li>
-                                         <li class="child"><a href="ClientServicesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>ClientServicesList</a></li>
+                                        <li class="child"><a href="ClientServicesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>ClientServicesList</a></li>
                                     </ul>
                                 </li>
-                                 <li class="parent">
+                                <li class="parent">
                                     <a href="#" onclick="toggle_menu('category'); return false" class=""><i class="fa fa-tasks mr-3"></i>
                                         <span class="none">Category <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                     </a>
-                                    <ul class="children" id="category">                                        
+                                    <ul class="children" id="category">
                                         <li class="child"><a href="CategoryLists.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Category List</a></li>
                                         <li class="child"><a href="ServicesList.aspx" class="ml-4"><i class="fa fa-angle-right mr-2"></i>Services List</a></li>
                                     </ul>

@@ -81,9 +81,7 @@ namespace TMS.CA
                     "</thead><tbody>";
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                   // using (MySqlCommand cmd = new MySqlCommand("Select * From Services"))
                     using (MySqlCommand cmd = new MySqlCommand("Select ser.*,cat.Name as Category from Services AS ser INNER JOIN Category AS cat ON ser.CategoryId = cat.CategoryId "))
-                    // using (MySqlCommand cmd = new MySqlCommand("Select emps.*,ser.Name as Services from EmployeeServices AS emps INNER JOIN Services AS ser ON emps.ServiceId = ser.ServiceId where emps.EmployeeId='" + ddlEmployees.SelectedValue + "'"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {

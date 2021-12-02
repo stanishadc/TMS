@@ -322,7 +322,6 @@ namespace TMS.CA
                 BindData();
                 BindDesignations();
                 Reset();
-
             }
             catch (Exception ex)
             {

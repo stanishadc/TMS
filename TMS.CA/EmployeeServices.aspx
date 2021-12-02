@@ -28,7 +28,7 @@
                                 <label for="validationCustom01">Category<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
                                 </asp:DropDownList>
-                            </div>
+                            </div>sss
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Service<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlService" runat="server" CssClass="custom-select" AutoPostBack="true">
@@ -39,12 +39,12 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Description<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control form-control-primary" placeholder="Description"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-4 col-12">
                                 <asp:Button ID="btnSubmit" runat="server" Text="Add" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
+                                  <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" CssClass="btn btn-danger" />
                             </div>
                         </div>
                     </div>

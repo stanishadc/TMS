@@ -19,7 +19,6 @@
                         <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ID="rfvName" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
-
                     <div class="col-sm-4 col-12">
                         <label for="message-text" class="col-form-label">Status:<span class="text-danger">*</span></label>
                         <asp:DropDownList ID="ddlStatus" runat="server" CssClass="custom-select">

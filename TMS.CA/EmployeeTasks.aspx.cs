@@ -23,45 +23,13 @@ namespace TMS.CA
                         {
                             DeleteRecord(Request.QueryString["Id"]);
                         }
-                        BindEmployees();
+
                         BindClients();
                     }
                 }
                 else
                 {
                     Response.Redirect("~/Index.aspx");
-                }
-            }
-            catch (Exception ex)
-            {
-                err.LogError(ex, ErrorPath);
-                Response.Redirect("Error.aspx");
-            }
-        }
-        private void BindEmployees()
-        {
-            try
-            {
-                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                using (MySqlConnection con = new MySqlConnection(databaseConnection))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT EmployeeId,Name FROM Employees"))
-                    {
-                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
-                        {
-                            cmd.Connection = con;
-                            sda.SelectCommand = cmd;
-                            using (DataTable dt = new DataTable())
-                            {
-                                sda.Fill(dt);
-                                ddlEmployees.DataSource = dt;
-                                ddlEmployees.DataTextField = "Name";
-                                ddlEmployees.DataValueField = "EmployeeId";
-                                ddlEmployees.DataBind();
-                                ddlEmployees.Items.Insert(0, "Please Select");
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception ex)
@@ -216,6 +184,52 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+        protected void ddlService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int ServiceId = Convert.ToInt32(ddlService.SelectedValue);
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("Select emps.*,emp.Name as Employee from EmployeeServices AS emps INNER JOIN Employees AS emp ON emps.EmployeeId = emp.EmployeeId where ServiceId='" + ServiceId + "'"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                ddlEmployees.DataSource = dt;
+                                ddlEmployees.DataTextField = "Employee";
+                                ddlEmployees.DataValueField = "EmployeeId";
+                                ddlEmployees.DataBind();
+                                ddlEmployees.Items.Insert(0, "Please Select");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
+        }
+        private void Reset()
+        {
+            txtDescription.Text = string.Empty;
+            ddlService.ClearSelection();
+            ddlClient.ClearSelection();
+            ddlEmployees.ClearSelection();
+            ddlStatus.SelectedValue = "Pending";
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -224,7 +238,7 @@ namespace TMS.CA
 
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO EmployeeTasks (ServiceId,ClientId,EmployeeId,Description,CreatedDate,UpdatedDate,Status) VALUES (@ServiceId,@ClientId,@EmployeeId,@Description,@CreatedDate,@UpdatedDate,@Status)"))
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO EmployeeTasks (ServiceId,ClientId,EmployeeId,Description,CreatedDate,UpdatedDate,Status,StartDate,EndDate) VALUES (@ServiceId,@ClientId,@EmployeeId,@Description,@CreatedDate,@UpdatedDate,@Status,@StartDate,@EndDate)"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
@@ -244,7 +258,7 @@ namespace TMS.CA
                         }
                     }
                 }
-
+                Reset();
             }
             catch (Exception ex)
             {

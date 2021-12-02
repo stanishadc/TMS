@@ -12,7 +12,6 @@ namespace TMS.CA
         {
             ErrorPath = Server.MapPath("ErrorLog.txt");
         }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try

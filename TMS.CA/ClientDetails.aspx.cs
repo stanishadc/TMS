@@ -19,7 +19,7 @@ namespace TMS.CA
                 {
                     if (!IsPostBack)
                     {
-
+                        
                         if (Request.QueryString["Action"] == "Edit")
                         {
                             btnSubmit.Visible = false;
@@ -37,7 +37,6 @@ namespace TMS.CA
                 {
                     Response.Redirect("~/Index.aspx");
                 }
-
             }
             catch (Exception ex)
             {
@@ -45,7 +44,6 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-     
         private void BindDataById(string Id)
         {
             try
@@ -163,7 +161,7 @@ namespace TMS.CA
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
-                            
+
                             cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
                             cmd.Parameters.AddWithValue("@Mobile", txtMobile.Text);
                             cmd.Parameters.AddWithValue("@Email", txtEmail.Text);

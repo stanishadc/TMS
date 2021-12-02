@@ -20,19 +20,18 @@
                     <div class="col-sm-12">
                         <div class="form-group row">
                             <div class="col-sm-4 col-12">
-                                <label for="validationCustom01">Employee<span class="text-danger">*</span></label>
-                                <asp:DropDownList ID="ddlEmployees" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlEmployees_SelectedIndexChanged">
-                                </asp:DropDownList>
-                            </div>
-                            <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Client Name<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlClient" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlClient_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>
-
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Service<span class="text-danger">*</span></label>
-                                <asp:DropDownList ID="ddlService" runat="server" CssClass="custom-select" AutoPostBack="true">
+                                <asp:DropDownList ID="ddlService" runat="server" CssClass="custom-select" AutoPostBack="true" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-sm-4 col-12">
+                                <label for="validationCustom01">Employee<span class="text-danger">*</span></label>
+                                <asp:DropDownList ID="ddlEmployees" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlEmployees_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>
                         </div>
@@ -40,34 +39,34 @@
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">TaskStartDate<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control form-control-primary" placeholder="StartDate" TextMode="Date"></asp:TextBox>
-                                <%--  <asp:RequiredFieldValidator ID="rfvDateOfJoin" runat="server" ErrorMessage="Please Enter DateOfJoin" ControlToValidate="txtDateOfJoin" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <asp:RequiredFieldValidator ID="rfvStartDate" runat="server" ErrorMessage="Please Enter TaskStartDate" ControlToValidate="txtStartDate" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">TaskEndDate<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtEndDate" runat="server" CssClass="form-control form-control-primary" placeholder="DateOfJoin" TextMode="Date"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter DateOfJoin" ControlToValidate="txtDateOfJoin" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <asp:RequiredFieldValidator ID="rfvEndDate" runat="server" ErrorMessage="Please Enter TaskEndDate" ControlToValidate="txtEndDate" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Task Status<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="custom-select">
                                     <asp:ListItem Value="P">Pending</asp:ListItem>
                                     <asp:ListItem Value="C">Completed</asp:ListItem>
-                                      <asp:ListItem Value="R">Requested Client</asp:ListItem>
+                                    <asp:ListItem Value="R">Requested Client</asp:ListItem>
                                 </asp:DropDownList>
-                                <%-- <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ErrorMessage="Please Select Status" ControlToValidate="ddlStatus" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 col-12">
                                 <label for="validationCustom01">Description<span class="text-danger">*</span></label>
                                 <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control form-control-primary" placeholder="Description"></asp:TextBox>
-                                <%-- <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Please Enter Name" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4 col-12">
                             <asp:Button ID="btnSubmit" runat="server" Text="Add" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
+                            <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" CssClass="btn btn-danger" />
                         </div>
                     </div>
                 </div>

@@ -15,15 +15,6 @@ namespace TMS.CA
     {
 
         /// <summary>
-        /// ddlEmployees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmployees;
-
-        /// <summary>
         /// ddlClient control.
         /// </summary>
         /// <remarks>
@@ -42,6 +33,15 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.DropDownList ddlService;
 
         /// <summary>
+        /// ddlEmployees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmployees;
+
+        /// <summary>
         /// txtStartDate control.
         /// </summary>
         /// <remarks>
@@ -49,6 +49,15 @@ namespace TMS.CA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStartDate;
+
+        /// <summary>
+        /// rfvStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStartDate;
 
         /// <summary>
         /// txtEndDate control.
@@ -60,6 +69,15 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.TextBox txtEndDate;
 
         /// <summary>
+        /// rfvEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEndDate;
+
+        /// <summary>
         /// ddlStatus control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,15 @@ namespace TMS.CA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        /// <summary>
+        /// rfvStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStatus;
 
         /// <summary>
         /// txtDescription control.
@@ -85,6 +112,15 @@ namespace TMS.CA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// btnReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReset;
 
         /// <summary>
         /// htmlDiv control.

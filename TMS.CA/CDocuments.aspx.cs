@@ -4,6 +4,9 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 
+using System.Net.Mail;
+
+
 namespace TMS.CA
 {
     public partial class CDocuments : System.Web.UI.Page
@@ -32,7 +35,6 @@ namespace TMS.CA
                 err.LogError(ex, ErrorPath);
                 Response.Redirect("Error.aspx");
             }
-
         }
         private void BindClients()
         {
@@ -66,6 +68,15 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
+        private void Reset()
+        {
+            txtDocumentName.Text = string.Empty;
+            ddlClients.ClearSelection();
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -93,6 +104,7 @@ namespace TMS.CA
                     }
                 }
                 BindData();
+                Reset();
             }
             catch (Exception ex)
             {

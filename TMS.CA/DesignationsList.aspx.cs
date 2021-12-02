@@ -174,10 +174,13 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-        protected void btnReset_Click(object sender, EventArgs e)
+        private void Reset()
         {
             txtName.Text = string.Empty;
-
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -210,6 +213,7 @@ namespace TMS.CA
                     }
                 }
                 BindData();
+                Reset();
             }
             catch (Exception ex)
             {
