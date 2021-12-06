@@ -19,11 +19,17 @@ namespace TMS.CA
                 {
                     if (!IsPostBack)
                     {
-                        if (Request.QueryString["Action"] == "Delete")
+                        if (Request.QueryString["Action"] == "Edit")
                         {
-                            DeleteRecord(Request.QueryString["Id"]);
+                            btnSubmit.Visible = false;
+                            btnUpdate.Visible = true;
+                            BindDataById(Request.QueryString["Id"]);
                         }
-
+                        else
+                        {
+                            btnSubmit.Visible = true;
+                            btnUpdate.Visible = false;
+                        }
                         BindClients();
                     }
                 }
@@ -75,7 +81,7 @@ namespace TMS.CA
                                                     "<td>" + dt.Rows[i]["Services"] + "</td>";
 
                                     htmldata += "<td class='align-middle text-center'>" +
-                                    "<a href=EmployeeTasks.aspx?Id=" + dt.Rows[i]["EmployeeTaskId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
+                                         "<a href=EmployeeTasks.aspx?Id=" + dt.Rows[i]["ServiceId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
                                 "</td>" +
                                 "</tr>";
                                 }
@@ -92,32 +98,7 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-        private void DeleteRecord(string Id)
-        {
-            try
-            {
-                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                using (MySqlConnection con = new MySqlConnection(databaseConnection))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("DELETE FROM EmployeeTasks WHERE EmployeeTaskId=@EmployeeTaskId"))
-                    {
-                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
-                        {
-                            cmd.Parameters.AddWithValue("@EmployeeTaskId", Id);
-                            cmd.Connection = con;
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                err.LogError(ex, ErrorPath);
-                Response.Redirect("Error.aspx");
-            }
-        }
+      
         private void BindClients()
         {
             try
@@ -230,6 +211,60 @@ namespace TMS.CA
         {
             Reset();
         }
+
+        private void BindDataById(string Id)
+        {
+            try
+            {
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM EmployeeTasks where EmployeeTaskId=@EmployeeTaskId"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Parameters.AddWithValue("@EmployeeTaskId", Request.QueryString["Id"]);
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                if (dt.Rows.Count > 0)
+                                {
+                                    ddlService.SelectedValue = dt.Rows[0]["ServiceId"].ToString();
+                                    ddlClient.SelectedValue = dt.Rows[0]["ClientId"].ToString();
+                                    ddlEmployees.SelectedValue = dt.Rows[0]["EmployeeId"].ToString();
+                                    txtDescription.Text = dt.Rows[0]["Description"].ToString();
+                                    txtStartDate.Text = dt.Rows[0]["StartDate"].ToString();
+                                    txtEndDate.Text = dt.Rows[0]["EndDate"].ToString();
+
+
+
+                                    if (dt.Rows[0]["Status"].ToString() == "P")
+                                    {
+                                        ddlStatus.SelectedValue = "Pending";
+                                    }
+                                    else if (dt.Rows[0]["Status"].ToString() == "C")
+                                    {
+                                        ddlStatus.SelectedValue = "Completed";
+                                    }
+                                    else
+                                    {
+                                        ddlStatus.SelectedValue = "Requested Client";
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -259,6 +294,43 @@ namespace TMS.CA
                     }
                 }
                 Reset();
+            }
+            catch (Exception ex)
+            {
+                err.LogError(ex, ErrorPath);
+                Response.Redirect("Error.aspx");
+            }
+        }
+
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+                using (MySqlConnection con = new MySqlConnection(databaseConnection))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("UPDATE EmployeeTasks set ServiceId=@ServiceId,ClientId=@ClientId, EmployeeId=@EmployeeId,Status=@Status,Description=@Description,StartDate=@StartDate,EndDate=@EndDate where EmployeeTaskId=@EmployeeTaskId"))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Parameters.AddWithValue("@EmployeeTaskId", Request.QueryString["Id"]);
+                            cmd.Parameters.AddWithValue("@ServiceId", ddlService.SelectedValue);
+                            cmd.Parameters.AddWithValue("@ClientId", ddlClient.SelectedValue);
+                            cmd.Parameters.AddWithValue("@EmployeeId", ddlEmployees.SelectedValue);
+                            cmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
+                            cmd.Parameters.AddWithValue("@Description", txtDescription.Text.Trim());
+                            cmd.Parameters.AddWithValue("@StartDate", txtStartDate.Text.Trim());
+                            cmd.Parameters.AddWithValue("@EndDate", txtEndDate.Text.Trim());
+                            cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@UpdatedDate", DateTime.Now);
+                            cmd.Connection = con;
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

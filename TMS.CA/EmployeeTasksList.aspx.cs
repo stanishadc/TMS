@@ -86,6 +86,7 @@ namespace TMS.CA
                            "<th>No</th>" +
                                   "<th>Client Name </th>" +
                                  "<th>Service Name </th>" +
+                                   "<th>Status</th>" +
 
                         "</tr>" +
                     "</thead><tbody>";
@@ -108,7 +109,23 @@ namespace TMS.CA
                                                        "<td>" + dt.Rows[i]["ClientId"] + "</td>" +
                                                       "<td>" + dt.Rows[i]["Services"] + "</td>";
 
+
+                                    if (dt.Rows[i]["Status"].ToString() == "P")
+                                    {
+                                        htmldata += "<td>Pending</td>";
+                                    }
+                                    else if (dt.Rows[i]["Status"].ToString() == "C")
+                                    {
+                                        htmldata += "<td>Completed</td>";
+                                    }
+                                   
+                                    else
+                                    {
+                                        htmldata += "<td>Requested Client</td>";
+                                    }
+
                                     htmldata += "<td class='align-middle text-center'>" +
+                                          "<a href=EmployeeTasks.aspx?Id=" + dt.Rows[i]["ServiceId"] + "&Action=Edit class='btn btn-link text-theme p-1'><i class='fa fa-pencil'></i></button>" +
                                     "<a href=EmployeeTasksList.aspx?Id=" + dt.Rows[i]["EmployeeTaskId"] + "&Action=Delete class='btn btn-link text-danger p-1'><i class='fas fa-trash'></i></button>" +
                                 "</td>" +
                                 "</tr>";

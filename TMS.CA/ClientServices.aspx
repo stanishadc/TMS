@@ -45,7 +45,7 @@
                         <div class="form-group row">
                             <div class="col-sm-4 col-12">
                                 <asp:Button ID="btnSubmit" runat="server" Text="Add" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
-
+                                  <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" CssClass="btn btn-danger" />
                             </div>
                         </div>
                     </div>

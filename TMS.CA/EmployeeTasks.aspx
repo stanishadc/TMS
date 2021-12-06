@@ -62,13 +62,15 @@
                                 <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control form-control-primary" placeholder="Description"></asp:TextBox>
                             </div>
                         </div>
-                    </div>
+                   
                     <div class="form-group row">
                         <div class="col-sm-4 col-12">
                             <asp:Button ID="btnSubmit" runat="server" Text="Add" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
+                             <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="btn btn-primary" Visible="false" />
                             <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" CssClass="btn btn-danger" />
                         </div>
                     </div>
+                         </div>
                 </div>
             </div>
         </div>

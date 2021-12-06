@@ -11,9 +11,6 @@
                 <div class="col-sm-8 pt-2">
                     <h6 class="mb-4 bc-header">Employee Services</h6>
                 </div>
-                <div class="col-sm-4 text-right pb-3">
-                    <a href="EmployeesList.aspx" class="btn btn-round btn-theme"><i class="fa fa-list"></i>&nbsp;Employees List</a>
-                </div>
             </div>
             <div class="col-sm-12">
                 <div class="row mt-4">
@@ -28,7 +25,7 @@
                                 <label for="validationCustom01">Category<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
                                 </asp:DropDownList>
-                            </div>sss
+                            </div>
                             <div class="col-sm-4 col-12">
                                 <label for="validationCustom01">Service<span class="text-danger">*</span></label>
                                 <asp:DropDownList ID="ddlService" runat="server" CssClass="custom-select" AutoPostBack="true">
