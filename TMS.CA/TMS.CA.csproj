@@ -2062,12 +2062,14 @@
     <Content Include="EmailRequest.aspx" />
     <Content Include="EmployeeDetails.aspx" />
     <Content Include="EmployeeList.aspx" />
+    <Content Include="EmployeeProfile.aspx" />
     <Content Include="EmployeeServices.aspx" />
     <Content Include="EmployeeTasks.aspx" />
     <Content Include="EmployeeTasksList.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="ErrorLog.txt" />
     <Content Include="Index.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="RolesList.aspx" />
     <Content Include="ServicesDetails.aspx" />
     <Content Include="ServicesList.aspx" />
@@ -2159,6 +2161,13 @@
     <Compile Include="EmployeeList.aspx.designer.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeProfile.aspx.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeServices.aspx.cs">
       <DependentUpon>EmployeeServices.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2201,6 +2210,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesList.aspx.cs">

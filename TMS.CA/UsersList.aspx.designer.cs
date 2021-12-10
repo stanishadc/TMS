@@ -42,15 +42,6 @@ namespace TMS.CA
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesignations;
 
         /// <summary>
-        /// ddlEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
-
-        /// <summary>
         /// txtUserName control.
         /// </summary>
         /// <remarks>

@@ -114,40 +114,6 @@ namespace TMS.CA
                 Response.Redirect("Error.aspx");
             }
         }
-        protected void ddlDesignations_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int DesignationId = Convert.ToInt32(ddlDesignations.SelectedValue);
-                string databaseConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
-                using (MySqlConnection con = new MySqlConnection(databaseConnection))
-
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Employees Where DesignationId =" + DesignationId))
-                    {
-                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
-                        {
-                            cmd.Connection = con;
-                            sda.SelectCommand = cmd;
-                            using (DataTable dt = new DataTable())
-                            {
-                                sda.Fill(dt);
-                                ddlEmployee.DataSource = dt;
-                                ddlEmployee.DataTextField = "Name";
-                                ddlEmployee.DataValueField = "EmployeeId";
-                                ddlEmployee.DataBind();
-                                ddlEmployee.Items.Insert(0, "Please Select");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                err.LogError(ex, ErrorPath);
-                Response.Redirect("Error.aspx");
-            }
-        }
         private void DeleteRecord(string Id)
         {
             try
@@ -304,11 +270,12 @@ namespace TMS.CA
                 }
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Users (DesignationId,UserName,Password,Status) VALUES (@DesignationId,@UserName,@Password,@Status)"))
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Users (DesignationId,RoleId,UserName,Password,Status) VALUES (@DesignationId,@RoleId,@UserName,@Password,@Status)"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
                             cmd.Parameters.AddWithValue("@DesignationId", ddlDesignations.SelectedValue);
+                            cmd.Parameters.AddWithValue("@RoleId", ddlRoles.SelectedValue);
                             cmd.Parameters.AddWithValue("@UserName", txtUserName.Text.Trim());
                             cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
                             cmd.Parameters.AddWithValue("@Status", Status);
@@ -346,12 +313,13 @@ namespace TMS.CA
                 }
                 using (MySqlConnection con = new MySqlConnection(databaseConnection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("UPDATE Users SET DesignationId=@DesignationId,UserName=@UserName,Password=@Password,Status=@Status WHERE UserId = @UserId"))
+                    using (MySqlCommand cmd = new MySqlCommand("UPDATE Users SET DesignationId=@DesignationId,RoleId=@RoleId,UserName=@UserName,Password=@Password,Status=@Status WHERE UserId = @UserId"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
 
                             cmd.Parameters.AddWithValue("@DesignationId", ddlDesignations.SelectedValue);
+                            cmd.Parameters.AddWithValue("@RoleId", ddlRoles.SelectedValue);
                             cmd.Parameters.AddWithValue("@UserName", txtUserName.Text.Trim());
                             cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
                             cmd.Parameters.AddWithValue("@Status", Status);

@@ -21,22 +21,17 @@
                     </div>
                     <div class="col-sm-4 col-12">
                         <label for="recipient-name" class="col-form-label">Designations:<span class="text-danger">*</span></label>
-                        <asp:DropDownList ID="ddlDesignations" runat="server" AutoPostBack="true" CssClass="custom-select" OnSelectedIndexChanged="ddlDesignations_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlDesignations" runat="server" AutoPostBack="true" CssClass="custom-select">
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rfvDesignations" runat="server" ErrorMessage="Please Select Designations " ControlToValidate="ddlDesignations" InitialValue="0" SetFocusOnError="true" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="col-sm-4 col-12">
-                        <label for="recipient-name" class="col-form-label">Employees:<span class="text-danger">*</span></label>
-                        <asp:DropDownList ID="ddlEmployee" AutoPostBack="true" runat="server" CssClass="custom-select">
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-4 col-12">
+                     <div class="col-sm-4 col-12">
                         <label for="recipient-name" class="col-form-label">UserName:<span class="text-danger">*</span></label>
                         <asp:TextBox ID="txtUserName" AutoPostBack="true" runat="server" CssClass="form-control"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="Please Enter UserName" ControlToValidate="txtUserName" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-sm-4 col-12">
                         <label for="recipient-name" class="col-form-label">Password:<span class="text-danger">*</span></label>
                         <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
